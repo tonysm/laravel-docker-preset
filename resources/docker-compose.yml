@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+
+    app:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        ports:
+            - "${DOCKER_APP_PORT}:80"
+        volumes:
+            - ./:/var/www/html
+
+    db:
+        image: mysql:5.7
+        volumes:
+            - mysqldata:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_ROOT_HOST: "%"
+        ports:
+            - "${DOCKER_DB_PORT}:3306"
+
+    testdb:
+        image: mysql:5.7
+        tmpfs: /var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_ROOT_HOST: "%"
+        ports:
+            - "${DOCKER_TEST_DB_PORT}:3306"
+
+    assets:
+        image: node:11
+        working_dir: /assets
+        volumes:
+          - .:/assets
+        command: yarn watch
+
+volumes:
+    mysqldata:

@@ -1,0 +1,54 @@
+{
+    "name": "tonysm/laravel-docker-preset",
+    "description": "Docker preset for Laravel applications",
+    "keywords": [
+        "tonysm",
+        "docker-preset"
+    ],
+    "homepage": "https://github.com/tonysm/docker-preset",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tony Messias",
+            "email": "tonyzrp@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "6.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tonysm\\DockerPreset\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tonysm\\DockerPreset\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tonysm\\DockerPreset\\DockerPresetServiceProvider"
+            ],
+            "aliases": {
+                "DockerPreset": "Tonysm\\DockerPreset\\DockerPresetFacade"
+            }
+        }
+    }
+}
