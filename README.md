@@ -1,11 +1,11 @@
-# Very short description of the package
+# Laravel Docker Preset
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tonysm/docker-preset.svg?style=flat-square)](https://packagist.org/packages/tonysm/docker-preset)
 [![Build Status](https://img.shields.io/travis/tonysm/docker-preset/master.svg?style=flat-square)](https://travis-ci.org/tonysm/docker-preset)
 [![Quality Score](https://img.shields.io/scrutinizer/g/tonysm/docker-preset.svg?style=flat-square)](https://scrutinizer-ci.com/g/tonysm/docker-preset)
 [![Total Downloads](https://img.shields.io/packagist/dt/tonysm/docker-preset.svg?style=flat-square)](https://packagist.org/packages/tonysm/docker-preset)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This preset adds Docker files to your application. After publishing these, you will have total control over what you use from the configs.
 
 ## Installation
 
